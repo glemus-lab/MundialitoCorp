@@ -1,0 +1,46 @@
+services:
+  # 1. BASE DE DATOS (SQL Server)
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: MundialitoCorp-db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Pass#1234
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P Pass#1234 -Q 'SELECT 1' -C || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. API (Backend .NET 10)
+  api:
+    build:
+      context: ./BackEnd
+      dockerfile: Dockerfile
+    container_name: MundialitoCorp-api
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sql-server;Database=MundialitoDb;User Id=sa;Password=Pass#1234;TrustServerCertificate=True;
+    depends_on:
+      sql-server:
+        condition: service_healthy
+
+  # 3. WEB (Frontend Next.js 16)
+  frontend:
+    build:
+      context: ./FrontEnd
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:8080/api
+    container_name: MundialitoCorp-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8080/api
+    depends_on:
+      - api

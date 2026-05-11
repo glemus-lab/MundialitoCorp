@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="MundialitoCorp.Api/MundialitoCorp.Api.csproj" />
+  <Project Path="MundialitoCorp.Application/MundialitoCorp.Application.csproj" />
+  <Project Path="MundialitoCorp.Domain/MundialitoCorp.Domain.csproj" />
+  <Project Path="MundialitoCorp.Infrastructure/MundialitoCorp.Infrastructure.csproj" />
+  <Project Path="MundialitoCorp.UnitTests/MundialitoCorp.UnitTests.csproj" />
+</Solution>
