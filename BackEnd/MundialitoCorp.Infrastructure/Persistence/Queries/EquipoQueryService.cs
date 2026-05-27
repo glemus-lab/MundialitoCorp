@@ -27,7 +27,7 @@ namespace MundialitoCorp.Infrastructure.Persistence.Queries
             };
 
             string orderColumn = validColumns.TryGetValue(sortBy ?? "", out var column) ? column : "Nombre";
-            string direction = string.Equals(sortDirection, "desc", StringComparison.OrdinalIgnoreCase) ? "ASC" : "ASC";
+            string direction = string.Equals(sortDirection, "desc", StringComparison.OrdinalIgnoreCase) ? "DESC" : "ASC";
 
             string sql = $@"
             SELECT Id, Nombre,
