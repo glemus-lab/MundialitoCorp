@@ -28,7 +28,7 @@ export const partidoService = {
   },
   registrarResultado: async (command: RegistrarResultadoModel): Promise<ApiResponse<void>> => {
     try {
-      const res = await apiClient.post('/partidos/registrar-resultado', command);
+      const res = await apiClient.patch('/partidos/registrar-resultado', command);
       return res.data;
     } catch (err) {
       if (axios.isAxiosError(err) && err.response) return err.response.data;
@@ -37,7 +37,7 @@ export const partidoService = {
   },
   updateFecha: async (id: string, nuevaFecha: string): Promise<ApiResponse<void>> => {
     try {
-      const res = await apiClient.put(`/partidos/${id}/fecha`, { id, nuevaFecha });
+      const res = await apiClient.patch(`/partidos/${id}/fecha`, { id, nuevaFecha });
       return res.data;
     } catch (err) {
       if (axios.isAxiosError(err) && err.response) return err.response.data;
