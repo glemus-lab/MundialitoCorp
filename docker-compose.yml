@@ -7,6 +7,7 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Pass#1234
       - MSSQL_PID=Developer
+      - TZ=America/El_Salvador
     ports:
       - "1433:1433"
     healthcheck:
@@ -26,6 +27,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=sql-server;Database=MundialitoDb;User Id=sa;Password=Pass#1234;TrustServerCertificate=True;
+      - TZ=America/El_Salvador
     depends_on:
       sql-server:
         condition: service_healthy
@@ -42,5 +44,6 @@ services:
       - "3000:3000"
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8080/api
+      - TZ=America/El_Salvador
     depends_on:
       - api
