@@ -451,7 +451,7 @@
               "script": {
                 "exec": [
                   "var fechaPartido = new Date();\r",
-                  "pm.environment.set(\"fechaPartidoProgramada\", fechaPartido.toISOString());"
+                  "pm.environment.set(\"fechaPartidoProgramada\", fechaPartido.toISOString().split('T')[0]);"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -583,7 +583,7 @@
                   "var fechaPartido = new Date();\r",
                   "fechaPartido.setDate(fechaHoy.getDate() + 1);\r",
                   "\r",
-                  "pm.environment.set(\"nuevaFechaPartidoProgramada\", fechaPartido.toISOString());"
+                  "pm.environment.set(\"nuevaFechaPartidoProgramada\", fechaPartido.toISOString().split('T')[0]);"
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -675,6 +675,25 @@
                   "key": "pageSize",
                   "value": "5"
                 }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetById",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/partidos/{{ultimoPartidoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "partidos",
+                "{{ultimoPartidoId}}"
               ]
             }
           },
@@ -809,20 +828,6 @@
           ""
         ]
       }
-    }
-  ],
-  "variable": [
-    {
-      "key": "equipoLocalId",
-      "value": ""
-    },
-    {
-      "key": "equipoVisitanteId",
-      "value": ""
-    },
-    {
-      "key": "nuevaFechaPartidoProgramada",
-      "value": ""
     }
   ]
 }
