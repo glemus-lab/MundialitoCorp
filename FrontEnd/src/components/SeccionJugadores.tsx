@@ -79,6 +79,7 @@ export default function SeccionJugadores({ equipoId }: { equipoId: string }) {
       setPage(1);
       cargar();
       setsuccessMessage('Jugador creado correctamente.');
+      setTimeout(() => setsuccessMessage(''), 1500);
       setIdempotencyKey(crypto.randomUUID());
     } else {
       handleResultErrors(res);
@@ -107,6 +108,7 @@ const guardarEdicion = async (id: string) => {
   if (res.isSuccess) {
     setEditandoId(null);
     setsuccessMessage('Jugador actualizado correctamente.')
+    setTimeout(() => setsuccessMessage(''), 1500);
     await cargar();
   } else {
     handleResultErrors(res);

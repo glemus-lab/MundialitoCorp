@@ -72,6 +72,7 @@ export default function EquipoFormPage({ params }: { params: Promise<{ id: strin
 
       if (res.isSuccess) {
         setSuccessMsg(isEdit ? "Cambios guardados correctamente" : "Equipo registrado");
+        setTimeout(() => setSuccessMsg(null), 1500);
         if (!isEdit && res.value) {
           setTimeout(() => router.push(`/equipos/${res.value}`), 1500);
         }
