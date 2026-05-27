@@ -2,7 +2,7 @@
 
 namespace MundialitoCorp.Domain.Entities
 {
-    public class PartidoGol
+    public class PartidoGol : Entity
     {
         public Guid Id { get; private set; }
         public Guid PartidoId { get; private set; }
