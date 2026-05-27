@@ -1,7 +1,7 @@
 ﻿using MundialitoCorp.Application.Features.Jugadores.Commands.DeleteJugador;
 using MundialitoCorp.Domain.Common;
 using MundialitoCorp.Domain.Entities;
-using MundialitoCorp.Domain.Repositories;
+using MundialitoCorp.Application.Repositories;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;

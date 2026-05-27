@@ -1,5 +1,5 @@
 ﻿using MundialitoCorp.Domain.Entities;
-using MundialitoCorp.Domain.Repositories;
+using MundialitoCorp.Application.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace MundialitoCorp.Infrastructure.Persistence.Repositories

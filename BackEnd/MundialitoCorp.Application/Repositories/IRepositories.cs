@@ -1,6 +1,6 @@
 ﻿using MundialitoCorp.Domain.Entities;
 
-namespace MundialitoCorp.Domain.Repositories
+namespace MundialitoCorp.Application.Repositories
 {
     public interface IEquipoRepository
     {

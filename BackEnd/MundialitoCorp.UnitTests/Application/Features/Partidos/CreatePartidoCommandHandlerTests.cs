@@ -1,5 +1,5 @@
 ﻿using MundialitoCorp.Application.Features.Partidos.Commands.CreatePartido;
-using MundialitoCorp.Domain.Repositories;
+using MundialitoCorp.Application.Repositories;
 using MundialitoCorp.Domain.Entities;
 using Moq;
 using FluentAssertions;

@@ -1,4 +1,4 @@
-﻿namespace MundialitoCorp.Domain.Repositories
+﻿namespace MundialitoCorp.Application.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -1,6 +1,6 @@
 ﻿using MundialitoCorp.Application.Features.Equipos.Commands.CreateEquipo;
 using MundialitoCorp.Domain.Entities;
-using MundialitoCorp.Domain.Repositories;
+using MundialitoCorp.Application.Repositories;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;

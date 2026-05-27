@@ -1,5 +1,5 @@
 ﻿using MundialitoCorp.Application.Interfaces;
-using MundialitoCorp.Domain.Repositories;
+using MundialitoCorp.Application.Repositories;
 using MundialitoCorp.Infrastructure.Logging;
 using MundialitoCorp.Infrastructure.Persistence;
 using MundialitoCorp.Infrastructure.Persistence.Dapper;

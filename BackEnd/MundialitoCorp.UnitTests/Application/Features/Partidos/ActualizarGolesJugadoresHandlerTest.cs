@@ -1,7 +1,7 @@
 ﻿using MundialitoCorp.Application.Features.Partidos.Events;
 using MundialitoCorp.Domain.Entities;
 using MundialitoCorp.Domain.Events;
-using MundialitoCorp.Domain.Repositories;
+using MundialitoCorp.Application.Repositories;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;

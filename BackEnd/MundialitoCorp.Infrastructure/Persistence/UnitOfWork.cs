@@ -1,4 +1,4 @@
-﻿using MundialitoCorp.Domain.Repositories;
+﻿using MundialitoCorp.Application.Repositories;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace MundialitoCorp.Infrastructure.Persistence

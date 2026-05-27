@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging.Console;
 using MundialitoCorp.Api;
 using MundialitoCorp.Api.Middleware;
 using MundialitoCorp.Application;
-using MundialitoCorp.Domain.Repositories;
+using MundialitoCorp.Application.Repositories;
 using MundialitoCorp.Infrastructure;
 using MundialitoCorp.Infrastructure.Persistence;
 using MundialitoCorp.Infrastructure.Persistence.Seed;

@@ -1,6 +1,6 @@
 ﻿using MundialitoCorp.Application.Interfaces;
 using MundialitoCorp.Domain.Common;
-using MundialitoCorp.Domain.Repositories;
+using MundialitoCorp.Application.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
