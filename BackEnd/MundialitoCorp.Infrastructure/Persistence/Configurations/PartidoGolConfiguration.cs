@@ -11,6 +11,9 @@ namespace MundialitoCorp.Infrastructure.Persistence.Configurations
             builder.ToTable("PartidoGoles");
             builder.HasKey(g => g.Id);
 
+            builder.Property(g => g.Id)
+                .ValueGeneratedNever();
+
             builder.HasOne<Partido>()
                .WithMany(p => p.GolesDetalle)
                .HasForeignKey(g => g.PartidoId)
