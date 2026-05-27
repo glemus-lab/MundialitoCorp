@@ -105,21 +105,17 @@ namespace MundialitoCorp.Infrastructure.Persistence.Queries
         {
             using var connection = _dapper.CreateConnection();
 
-            var inicioDia = fecha;
-            var finDia = inicioDia.AddDays(1);
-
             const string sql = @"
             SELECT CASE WHEN EXISTS (
                 SELECT 1 FROM Partidos 
                 WHERE (EquipoLocalId = @Id OR EquipoVisitanteId = @Id)
-                  AND Fecha >= @Inicio AND Fecha <= @Fin
+                  AND Fecha = @Fecha
             ) THEN 1 ELSE 0 END";
 
             return await connection.ExecuteScalarAsync<bool>(sql, new
             {
                 Id = equipoId,
-                Inicio = inicioDia,
-                Fin = finDia
+                Fecha = fecha
             });
         }
 
