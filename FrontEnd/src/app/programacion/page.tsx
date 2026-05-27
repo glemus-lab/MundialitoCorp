@@ -48,12 +48,10 @@ export default function ProgramarPartidoPage() {
       handleResultErrors(validationResult);
       return;
     }
-
-    const fechaISO = prog.fecha ?  new Date(`${prog.fecha}T00:00:00`).toISOString() : null;
     
     try
     {
-      const res = await partidoService.crear({ equipoLocalId: prog.localId || null, equipoVisitanteId: prog.visitanteId || null, fecha: fechaISO || null }, idempotencyKey);
+      const res = await partidoService.crear({ equipoLocalId: prog.localId || null, equipoVisitanteId: prog.visitanteId || null, fecha: prog.fecha || null }, idempotencyKey);
 
       if (res.isSuccess) {
         setSuccessMessage('Partido creado correctamente.');

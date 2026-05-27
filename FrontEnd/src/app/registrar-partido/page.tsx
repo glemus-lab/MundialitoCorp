@@ -74,7 +74,7 @@ export default function ResultadosGestionPage() {
     setGolesL(0); setGolesV(0); setIdsL([]); setIdsV([]);
     
     if (p) {
-      setNuevaFecha(p.fecha.split('T')[0]);
+      setNuevaFecha(p.fecha);
       const [resL, resV] = await Promise.all([
         jugadorService.getByEquipo(p.equipoLocalId, 1, ''),
         jugadorService.getByEquipo(p.equipoVisitanteId, 1, '')
@@ -97,12 +97,10 @@ export default function ResultadosGestionPage() {
       } as ApiResponse<void>);
       return;
     }
-
-    const isoFecha = new Date(`${nuevaFecha}T00:00:00`).toISOString();
     
     try
     {
-      const res = await partidoService.updateFecha(partidoSel.id, isoFecha);
+      const res = await partidoService.updateFecha(partidoSel.id, nuevaFecha);
       if (res.isSuccess) {
         setEditandoFecha(false);
         setSuccessMsg("Fecha actualizada");
@@ -256,7 +254,7 @@ export default function ResultadosGestionPage() {
           >
             <option value="">-- Seleccionar partido pendiente --</option>
             {partidosPendientes.map(p => (
-              <option key={p.id} value={p.id}>{p.local} vs {p.visitante} — [{new Date(p.fecha).toLocaleDateString('es-ES')}]</option>
+              <option key={p.id} value={p.id}>{p.local} vs {p.visitante} — [{new Date(p.fecha + "T00:00").toLocaleDateString('es-ES')}]</option>
             ))}
           </select>
           
