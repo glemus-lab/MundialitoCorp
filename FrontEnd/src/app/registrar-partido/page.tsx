@@ -254,7 +254,7 @@ export default function ResultadosGestionPage() {
           >
             <option value="">-- Seleccionar partido pendiente --</option>
             {partidosPendientes.map(p => (
-              <option key={p.id} value={p.id}>{p.local} vs {p.visitante} — [{new Date(p.fecha + "T00:00").toLocaleDateString('es-ES')}]</option>
+              <option key={p.id} value={p.id}>{p.local} vs {p.visitante} — [{new Date(p.fecha + "T00:00").toLocaleDateString()}]</option>
             ))}
           </select>
           

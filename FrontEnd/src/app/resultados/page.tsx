@@ -69,7 +69,7 @@ export default function HistorialResultadosPage() {
             ) : (
               pagedList?.data.map((p) => (
                 <tr key={p.id} className="hover:bg-gray-50/50 transition-colors group">
-                  <td className="p-5"><span className="font-bold text-gray-700 uppercase text-xs tracking-tight">{new Date(p.fecha).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' })}</span></td>
+                  <td className="p-5"><span className="font-bold text-gray-700 uppercase text-xs tracking-tight">{new Date(p.fecha + 'T00:00').toLocaleDateString()}</span></td>
                   <td className="p-5 text-center text-gray-500 font-medium text-xs">{p.local}</td>
                   <td className="p-5 text-center text-gray-500 font-medium text-xs">{p.visitante}</td>
                   <td className="p-5 text-center"><span className="inline-flex items-center px-3 py-1 bg-gray-900 text-white rounded-lg text-sm font-black shadow-sm tracking-tighter">{p.golesL} — {p.golesV}</span></td>
