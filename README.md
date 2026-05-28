@@ -29,7 +29,7 @@ La forma más rápida de levantar el entorno completo (Base de datos, API y Web)
    ```
 3. Acceder a las aplicaciones:
    - **Frontend:** [http://localhost:3000](http://localhost:3000)
-   - **Backend API:** [http://localhost:8080/api](http://localhost:8080/api)
+   - **Backend API:** [http://localhost:8080/api](http://localhost:8080)
 
 ## Pruebas
 
