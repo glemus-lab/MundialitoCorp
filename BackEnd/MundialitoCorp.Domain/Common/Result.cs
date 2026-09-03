@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace MundialitoCorp.Domain.Common
+﻿namespace MundialitoCorp.Domain.Common
 {
     public class ValidationError
     {

@@ -1,9 +1,10 @@
-﻿using MundialitoCorp.Application.Interfaces;
-using MundialitoCorp.Domain.Common;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using MundialitoCorp.Application.Interfaces;
+using MundialitoCorp.Domain.Common;
 
 namespace MundialitoCorp.Api.Filters
 {
@@ -47,7 +48,10 @@ namespace MundialitoCorp.Api.Filters
                 if (executedContext.Result is ObjectResult objectResult &&
                     objectResult.StatusCode >= 200 && objectResult.StatusCode < 300)
                 {
-                    var responseBody = System.Text.Json.JsonSerializer.Serialize(objectResult.Value);
+                    var jsonOptions = context.HttpContext.RequestServices
+                        .GetRequiredService<IOptions<JsonOptions>>().Value;
+
+                    var responseBody = System.Text.Json.JsonSerializer.Serialize(objectResult.Value, jsonOptions.JsonSerializerOptions);
                     await idempotencyService.CreateRequestAsync(key, context.ActionDescriptor.DisplayName!, responseBody, objectResult.StatusCode.Value);
                 }
             }

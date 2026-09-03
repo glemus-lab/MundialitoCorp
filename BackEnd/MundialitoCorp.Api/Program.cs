@@ -1,5 +1,5 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging.Console;
 using MundialitoCorp.Api;
 using MundialitoCorp.Api.Middleware;
 using MundialitoCorp.Application;
@@ -39,7 +39,11 @@ builder.Services.AddWebApi();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

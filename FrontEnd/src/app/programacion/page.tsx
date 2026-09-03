@@ -54,8 +54,14 @@ export default function ProgramarPartidoPage() {
       const res = await partidoService.crear({ equipoLocalId: prog.localId || null, equipoVisitanteId: prog.visitanteId || null, fecha: prog.fecha || null }, idempotencyKey);
 
       if (res.isSuccess) {
-        setSuccessMessage('Partido creado correctamente.');
-        setIdempotencyKey(crypto.randomUUID());
+        setSuccessMessage('Partido creado correctamente.')
+        setTimeout(() => {
+          setSuccessMessage('');
+          prog.localId = '';
+          prog.visitanteId = '';
+          prog.fecha = '';          
+          setIdempotencyKey(crypto.randomUUID());
+        }, 1500);
       } else {
         handleResultErrors(res);
       }
